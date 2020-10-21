@@ -1,12 +1,12 @@
 {
-  "schema": "iglu:com.snowplowanalytics.iglu/resolver-config/jsonschema/1-0-1",
+  "schema": "iglu:com.snowplowanalytics.iglu/resolver-config/jsonschema/1-0-2",
   "data": {
     "cacheSize": 500,
     "repositories": [
       {
         "name": "Iglu Central",
         "priority": 0,
-        "vendorPrefixes": [ "com.snowplowanalytics" ],
+        "vendorPrefixes": ["com.snowplowanalytics"],
         "connection": {
           "http": {
             "uri": "http://iglucentral.com"
@@ -14,12 +14,13 @@
         }
       },
       {
-        "name": "Local Iglu",
-        "priority": 1,
-        "vendorPrefixes": [ "com.dev" ],
+        "name": "Iteratively",
+        "priority": 0,
+        "vendorPrefixes": ["ly.iterative"],
         "connection": {
           "http": {
-            "uri": "http://iglu"
+            "uri": "http://host.docker.internal:4000/iglu",
+            "apikey": "ITLY-API-KEY"
           }
         }
       }

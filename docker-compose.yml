@@ -42,14 +42,14 @@ services:
     depends_on:
       - elasticsearch
 
-  iglu:
-    container_name: iglu
-    image: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./iglu:/usr/share/nginx/html:ro
-    command: /bin/bash -c "echo 'autoindex on;' > /etc/nginx/conf.d/autoindex.conf && nginx -g 'daemon off;'"
+  # iglu:
+  #   container_name: iglu
+  #   image: nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./iglu:/usr/share/nginx/html:ro
+  #   command: /bin/bash -c "echo 'autoindex on;' > /etc/nginx/conf.d/autoindex.conf && nginx -g 'daemon off;'"
 
   nsqlookupd:
     container_name: nsqlookupd
@@ -102,8 +102,8 @@ services:
     ]
     depends_on:
       - stream-collector
-    links:
-      - iglu
+    # links:
+    #   - iglu
     volumes:
       - ./config:/snowplow/config
     environment:
